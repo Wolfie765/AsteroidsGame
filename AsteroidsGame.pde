@@ -35,7 +35,7 @@ public void keyPressed()
     ssTurkey.setY((int)(Math.random()*400));
     ssTurkey.setDirectionX(0);
     ssTurkey.setDirectionY(0);
-
+    ssTurkey.setPointDirection((int)(Math.random()*360));
   }
   if(key == 'w')
   {
