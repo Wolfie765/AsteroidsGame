@@ -1,27 +1,38 @@
 //your variable declarations here
 SpaceShip ssTurkey;
-int randomizing;
+star [] staars;
+//Asteroid Color: fill(99,88,66);
 public void setup() 
 {
   //your code here
   size(400, 400);
   ssTurkey = new SpaceShip();
+staars = new  star[250];
+for(int i = 0; i < staars.length; i++)
+  {
+    staars[i] = new star();
+  }
 }
 public void draw() 
 {
   //your code here
   background(13, 10, 28);
+  for(int i = 0; i < staars.length; i++)
+  {
+    staars[i].show();
+  }
   ssTurkey.show();
   ssTurkey.move();
-  randomizing = (int)(Math.random()*400);
+  
+
 }
 
 public void keyPressed()
 {
   if(key == 'h')
   {
-    ssTurkey.setX((int)randomizing);
-    ssTurkey.setY((int)randomizing);
+    ssTurkey.setX((int)(Math.random()*400));
+    ssTurkey.setY((int)(Math.random()*400));
     ssTurkey.setDirectionX(0);
     ssTurkey.setDirectionY(0);
 
@@ -160,3 +171,21 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   }   
 } 
 
+class star
+{
+private int m_x, m_y;
+private int randomcolors;
+star()
+  {
+    m_x = (int)(Math.random()*400);
+    m_y = (int)(Math.random()*400);
+  }
+
+public void show()
+  {
+
+    point(m_x, m_y);
+
+
+  }
+}
