@@ -1,16 +1,22 @@
 //your variable declarations here
 SpaceShip ssTurkey;
-star [] staars;
+star [] staars = new  star[250];
+Asteroid [] rocks = new Asteroid[7];
 //Asteroid Color: fill(99,88,66);
 public void setup() 
 {
   //your code here
   size(400, 400);
-  ssTurkey = new SpaceShip();
-staars = new  star[250];
+ssTurkey = new SpaceShip();
+
 for(int i = 0; i < staars.length; i++)
   {
     staars[i] = new star();
+  }
+
+for(int i = 0; i < rocks.length; i++)
+  {
+    rocks[i] = new Asteroid();
   }
 }
 public void draw() 
@@ -21,6 +27,12 @@ public void draw()
   {
     staars[i].show();
   }
+  for(int i = 0; i < rocks.length; i++)
+  {
+  rocks[i].show();
+  rocks[i].move();
+  }
+
   ssTurkey.show();
   ssTurkey.move();
   
@@ -94,6 +106,44 @@ class SpaceShip extends Floater
   public double getPointDirection() {return m_PointDirection;}
 
 }
+
+class Asteroid extends Floater
+{
+  private int rotSpeed = (int)(Math.random()*5)-3;
+public Asteroid(){
+    corners = 4;
+    int[] asteroidsX = {15, 25, 25, 15};
+    int[] asteroidsY = {15, 15, 25, 25};
+    xCorners = asteroidsX;
+    yCorners = asteroidsY;
+    m_CenterX = (int)(Math.random()*400);
+    m_CenterY = (int)(Math.random()*400);
+    m_Color = 99;
+    m_DirectionX = (int)(Math.random()*4)-2;
+    m_DirectionY = (int)(Math.random()*5)-2;
+    m_PointDirection = (int)(Math.random()*30);
+  }
+  
+public void move()
+  {
+    rotate(rotSpeed);
+    super.move();
+  }
+
+  public void setX(int x) {m_CenterX = x;}
+  public int getX() {return (int) m_CenterX;}
+  public void setY(int y) {m_CenterY = y;}
+  public int getY() {return (int) m_CenterY;}
+  public void setDirectionX(double x) {m_DirectionX = x;}
+  public double getDirectionX() {return m_DirectionX;}
+  public void setDirectionY (double y) {m_DirectionY = y;}
+  public double getDirectionY() {return m_DirectionY;} 
+  public void setPointDirection(int degrees) {m_PointDirection = degrees;}
+  public double getPointDirection() {return m_PointDirection;}
+}
+
+
+
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
