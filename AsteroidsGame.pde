@@ -1,12 +1,19 @@
 //your variable declarations here
 SpaceShip ssTurkey;
 star [] staars = new  star[250];
-Asteroid [] rocks = new Asteroid[7];
+//Asteroid [] rocks = new Asteroid[10];
+
+
+ArrayList <Asteroid> boulders;
+
 //Asteroid Color: fill(99,88,66);
 public void setup() 
 {
   //your code here
   size(400, 400);
+
+boulders = new ArrayList <Asteroid>();
+
 ssTurkey = new SpaceShip();
 
 for(int i = 0; i < staars.length; i++)
@@ -14,9 +21,9 @@ for(int i = 0; i < staars.length; i++)
     staars[i] = new star();
   }
 
-for(int i = 0; i < rocks.length; i++)
+for(int i = 0; i < 10; i++)
   {
-    rocks[i] = new Asteroid();
+    boulders.add(new Asteroid());
   }
 }
 public void draw() 
@@ -27,10 +34,10 @@ public void draw()
   {
     staars[i].show();
   }
-  for(int i = 0; i < rocks.length; i++)
+  for(int i = 0; i < 10; i++)
   {
-  rocks[i].show();
-  rocks[i].move();
+  boulders.get(i).show();
+  boulders.get(i).move();
   }
 
   ssTurkey.show();
@@ -85,7 +92,7 @@ class SpaceShip extends Floater
     yCorners[1] = -4;
     yCorners[2] = 0;
     yCorners[3] = 4;
-    m_Color = 123;
+    m_Color = 222;
     m_CenterX =  200;
     m_CenterY = 200;
     m_DirectionX = 0;
