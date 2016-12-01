@@ -149,6 +149,17 @@ public void move()
   public double getPointDirection() {return m_PointDirection;}
 }
 
+public void distance()
+{
+  int d_value;
+  dist(m_CenterX, m_CenterY, )
+}
+
+public void show()
+{
+ if (d_value)
+
+}
 
 
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
