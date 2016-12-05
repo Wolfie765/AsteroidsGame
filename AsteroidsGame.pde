@@ -34,10 +34,15 @@ public void draw()
   {
     staars[i].show();
   }
-  for(int i = 0; i < 10; i++)
+  for(int i = 0; i < boulders.size(); i++)
   {
   boulders.get(i).show();
   boulders.get(i).move();
+  
+    if(dist(ssTurkey.getX(), ssTurkey.getY(),boulders.get(i).getX(), boulders.get(i).getY()) < 15)
+    {  
+      boulders.remove(i);
+    }
   }
 
   ssTurkey.show();
@@ -84,14 +89,14 @@ class SpaceShip extends Floater
     corners = 4;
     xCorners = new int [corners];
     yCorners = new int [corners];
-    xCorners[0] = 5;
-    xCorners[1] = -6;
+    xCorners[0] = 4;
+    xCorners[1] = -5;
     xCorners[2] = -2;
-    xCorners[3] = -6;
+    xCorners[3] = -5;
     yCorners[0] = 0;
-    yCorners[1] = -4;
+    yCorners[1] = -3;
     yCorners[2] = 0;
-    yCorners[3] = 4;
+    yCorners[3] = 3;
     m_Color = 222;
     m_CenterX =  200;
     m_CenterY = 200;
@@ -119,8 +124,8 @@ class Asteroid extends Floater
   private int rotSpeed = (int)(Math.random()*5)-3;
 public Asteroid(){
     corners = 4;
-    int[] asteroidsX = {15, 25, 25, 15};
-    int[] asteroidsY = {15, 15, 25, 25};
+    int[] asteroidsX = {0, 5, 0, -5};
+    int[] asteroidsY = {-5, 0, 5, 0};
     xCorners = asteroidsX;
     yCorners = asteroidsY;
     m_CenterX = (int)(Math.random()*400);
@@ -149,17 +154,6 @@ public void move()
   public double getPointDirection() {return m_PointDirection;}
 }
 
-public void distance()
-{
-  int d_value;
-  dist(m_CenterX, m_CenterY, )
-}
-
-public void show()
-{
- if (d_value)
-
-}
 
 
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
