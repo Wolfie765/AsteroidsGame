@@ -1,9 +1,10 @@
 //your variable declarations here
 SpaceShip ssTurkey;
 star [] staars = new  star[250];
+
 //Asteroid [] rocks = new Asteroid[10];
 
-
+ArrayList <Bullet> pellets;
 ArrayList <Asteroid> boulders;
 
 //Asteroid Color: fill(99,88,66);
@@ -13,7 +14,7 @@ public void setup()
   size(400, 400);
 
 boulders = new ArrayList <Asteroid>();
-
+pellets = new ArrayList <Bullet>();
 ssTurkey = new SpaceShip();
 
 for(int i = 0; i < staars.length; i++)
@@ -21,11 +22,14 @@ for(int i = 0; i < staars.length; i++)
     staars[i] = new star();
   }
 
+
+
 for(int i = 0; i < 10; i++)
   {
     boulders.add(new Asteroid());
   }
 }
+
 public void draw() 
 {
   //your code here
@@ -34,6 +38,7 @@ public void draw()
   {
     staars[i].show();
   }
+
   for(int i = 0; i < boulders.size(); i++)
   {
   boulders.get(i).show();
@@ -43,7 +48,14 @@ public void draw()
     {  
       boulders.remove(i);
     }
+
   }
+
+  for(int i = 0; i < pellets.size(); i++)
+    {
+      pellets.get(i).show();
+      pellets.get(i).move();
+    }
 
   ssTurkey.show();
   ssTurkey.move();
@@ -79,6 +91,12 @@ public void keyPressed()
   if(key == 'd')
   {
     ssTurkey.rotate(5);
+  }
+
+  if(key == ' ')
+  {
+    //System.out.println("adding bullet");
+    pellets.add(new Bullet(ssTurkey));
   }
 }
 
