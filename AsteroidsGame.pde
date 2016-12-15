@@ -60,6 +60,14 @@ public void draw()
   ssTurkey.show();
   ssTurkey.move();
   
+  for(int j = 0; j < pellets.size(); j++)
+  {
+    for(int i = 0; i < boulders.size(); i++)
+    {
+      if(dist(pellets.get(j).getX(), pellets.get(j).getY(), boulders.get(i).getX(), boulders.get(i).getX())<15)
+        boulders.remove(i);
+    }
+  }
 
 }
 

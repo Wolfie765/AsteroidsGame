@@ -8,7 +8,6 @@ class Bullet extends Floater
 		double dRadians = m_PointDirection*(Math.PI/180);
 		m_DirectionX = 5*Math.cos(dRadians) + ssTurkey.getDirectionX();
 		m_DirectionY = 5*Math.sin(dRadians) + ssTurkey.getDirectionY();
-	
 	}
 
   public void setX(int x) {m_CenterX = x;}
@@ -27,10 +26,12 @@ class Bullet extends Floater
 		fill(244, 188, 66);
 		noStroke();
 		ellipse((float)m_CenterX, (float)m_CenterY, 3, 3);
-	}	
+	}
+
 	public void move()
-	  {
+	{
 		m_CenterX += m_DirectionX;    
     	m_CenterY += m_DirectionY;
-	  }
+	}
+	
 }
